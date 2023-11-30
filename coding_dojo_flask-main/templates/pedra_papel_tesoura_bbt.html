@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <title>Pedra, Papel, Tesoura, Lagarto, Spock</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 40px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+
+    div.opcoes {
+      display: inline-flex;
+      margin-left: 40px;
+      border-radius: 5px;
+      background-color: rgb(150, 197, 224);
+      padding: 10px;
+      cursor: pointer;
+      height: 130px;
+      width: 130px;
+      justify-content: center;
+    }
+    
+    div.opcoes img {
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+    }
+    
+    span {
+      color: rgb(16, 85, 112);
+      display: block;
+      margin-top: 10px;
+    }
+
+    div.opcoes:hover {
+      background-color: rgb(126, 189, 226);
+    }
+
+    div.resultado {
+      margin-top: 100px;
+      display: flex;
+      justify-content: center;
+    }
+
+    div.vencedor {
+      background-color: rgb(180, 226, 175);
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      display: inline-block;
+      margin-left: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Pedra, Papel, Tesoura, Lagarto, Spock</h1>
+
+  <ul>
+    <li><b>Pedra</b> quebra <b>Tesoura</b></li>
+    <li><b>Tesoura</b> corta <b>Papel</b></li>
+    <li><b>Papel</b> cobre <b>Pedra</b></li>
+    <li><b>Pedra</b> quebra <b>Lagarto</b></li>
+    <li><b>Lagarto</b> envenena <b>Spock</b></li>
+  </ul>
+  <ul>
+    <li><b>Spock</b> esmaga <b>Tesoura</b></li>
+    <li><b>Tesoura</b> decapita <b>Lagarto</b></li>
+    <li><b>Lagarto</b> come <b>Papel</b></li>
+    <li><b>Papel</b> desmente <b>Spock</b></li>
+    <li><b>Spock</b> destrói <b>Pedra</b></li>
+  </ul>
+
+  <p>Você vai jogar contra o computador. Escolha sua opção:</p>
+  <div class="opcoes">
+    <a href="{{ url_for('checar_opcao', opcao_jogador='pedra') }}">
+      <img src="{{url_for('static', filename='pedra.png')}}" height="100" />
+      <span>Pedra</span>
+    </a>
+  </div>
+  <div class="opcoes">
+    <a href="{{ url_for('checar_opcao', opcao_jogador='papel') }}">
+      <img src="{{url_for('static', filename='papel.png')}}" height="100" />
+      <span>Papel</span>
+    </a>
+  </div>
+  <div class="opcoes">
+    <a href="{{ url_for('checar_opcao', opcao_jogador='tesoura') }}">
+      <img src="{{url_for('static', filename='tesoura.png')}}" height="100" />
+      <span>Tesoura</span>
+    </a>
+  </div>
+  <div class="opcoes">
+    <a href="{{ url_for('checar_opcao', opcao_jogador='lagarto') }}">
+      <img src="{{url_for('static', filename='lagarto.png')}}" height="100" />
+      <span>Lagarto</span>
+    </a>
+  </div>
+  <div class="opcoes">
+    <a href="{{ url_for('checar_opcao', opcao_jogador='spock') }}">
+      <img src="{{url_for('static', filename='spock.png')}}" height="100" />
+      <span>Spock</span>
+    </a>
+  </div>
+
+  {% if mensagem %}
+    <div class="resultado">
+      <div class="{{'vencedor' if mensagem.split()[0].lower() == 'jogador' }}">
+        <img src="{{url_for('static', filename=opcao_jogador + '.png')}}" height="100" />
+        <span><strong>Jogador</strong></span>
+      </div>
+      <img src="{{url_for('static', filename='versus.png')}}" height="100" />
+      <div class="{{'vencedor' if mensagem.split()[0].lower() == 'computador' }}">
+        <img src="{{url_for('static', filename=opcao_computador + '.png')}}" height="100" />
+        <span><strong>Computador</strong></span>
+      </div>
+    </div>
+    <p>{{ mensagem }}</p>
+  {% endif %}
+</body>

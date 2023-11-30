@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <title>Pedra, Papel, Tesoura, Lagarto, Spock</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 40px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    p {
+      color: #666;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Pedra, Papel, Tesoura, Lagarto, Spock</h1>
+
+  <p>Gosta de um desafio? Que tal tentar o Pedra, Papel, Tesoura, Lagarto, Spock da série "The Big Bang Theory"? Clique na imagem e veja o vídeo</p>
+  <a href="https://www.youtube.com/watch?v=OtzekNVWs30" target="_blank">
+    <img src="{{url_for('static', filename='pedra_papel_tesoura_lagarto_spock_regras.png')}}" height="500">
+  </a>
+
+  <p style="text-align: justify;">
+    Instruções:
+    <ul style="text-align: justify;">
+      <li>Crie uma cópia dos arquivos python e html de "pedra_papel_tesoura", renomeando-os para "pedra_papel_tesoura_bbt";</li>
+      <li>Altere o arquivo .html criado para incluir as opções "lagarto" e "spock" (só precisa mexer dentro da div opcoes). Veja que as figuras já estão disponíveis no repositório, na pasta static;</li>
+      <li>Altere o arquivo .py para referenciar o novo arquivo html e altere sua lógica para que o jogo funcione.</li>
+    </ul>
+  </p>
+</body>
